@@ -1,12 +1,11 @@
-const email = axios.get("https://flynn.boolean.careers/exercises/api/random/mail").then((resp) => {
-    const email = resp.data.response;
-});
+const emailList = document.getElementById("email-list");
 
-const emails = [];
-console.log(email);
-
-
-for (i = email; i < email; i ++) {
-    const element = emails[i];
-    console.log();
+for (let i = 1; i <= 10; i++) {
+    
+    axios.get("https://flynn.boolean.careers/exercises/api/random/mail").then((resp) => {
+        const emailCur = resp.data.response;
+        emailList.innerHTML += `<li>${emailCur}</li>`
+        console.log(emailCur);
+        
+    });  
 }
